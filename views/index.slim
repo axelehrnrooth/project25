@@ -1,0 +1,43 @@
+- if session["user"]
+    h1 Welcome #{session["username"]}
+- else 
+  h1 Welcome
+
+h2 Instruktioner
+
+p I denna applikation kan du se exempel på hur man
+
+ul
+  li Visar sidor
+  li Lagrar data i sessions (tex "Namnet ovan")
+  li Använder ett formulär
+  li Döper routes
+  li Använder get/post-routes
+
+h2 Uppgift
+
+p Du ska med applikationen som mall göra liknande funktioner.
+
+h3 Del 1: Utveckla
+
+ol
+  li Börja med att studera filerna, slim, app.rb och få en blick i hur det hänger ihop
+  li Skapa sedan en sida med ett nytt formulär som ändrar username
+  li Utveckla note-formuläret, spara tex även rubrik för note och författare
+  li Skapa ett formulär som tömmer hela notes-listan (eller bara en note)
+
+h3 Del 2: Inlogg
+
+ol
+  li Ha användarnamn och password hårdkodat i app.rb
+  li Gör en inloggningssida med formulär
+  li Ge användaren tillgång till "skapa notes" om inloggningsförsök lyckas. Annars redirecta till error-sida.
+
+h3 Del 3: Dokumentation
+
+p Skapa en ny sida i applikationen där du skriver din dokumentation (ej med fomulär, bara text slim-filen). Vad har du gjort under lektionen? Vad gick bra/mindre bra? Vad ska du göra nästa gång?
+
+
+h3 Del 4: Valfri funktionalitet.
+
+p Lägg till någon funktionalitet på sidan som sparar data m.h.a formulär/sessions. Man ska även kunna ta bort eller uppdatera datan.

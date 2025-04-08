@@ -1,0 +1,17 @@
+h1 Mina anteckningar
+
+a href="/notes/new" Ny anteckning
+
+ul
+  - @notes.each do |note|
+    li
+      h3 = note["title"]
+      p = note["content"]
+      small = "Skriven av: #{note["author"]}"
+
+      form action="/notes/delete" method="post"
+        input type="hidden" name="id" value="#{note["id"]}"
+        button type="submit" Ta bort
+
+form action="/notes/clear" method="post"
+  button type="submit" Radera alla anteckningar!

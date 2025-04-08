@@ -1,0 +1,37 @@
+h1 Rankning
+
+div style="display: flex; gap: 50px; align-items: flex-start"
+  / ====== Formulär för ny ranking ======
+  div
+    form action="/save_ranking" method="post"
+      label for="category" Vad vill du ranka?
+      input type="text" name="category" required=true
+
+      table
+        tr
+          th Plats
+          th Titel (valfri efter plats 3)
+        - (1..10).each do |i|
+          tr
+            td = i
+            td
+              - if i <= 3
+                input type="text" name="rankings[]" required=true
+              - else
+                input type="text" name="rankings[]"
+
+      button type="submit" Spara ranking
+
+  / ====== Tidigare rankningar visas här ======
+  - if session[:rankings] && !session[:rankings].empty?
+    div
+      h2 Tidigare rankningar
+      - session[:rankings].each_with_index do |ranking, index|
+        h3 = ranking[:category]
+        ol
+          - ranking[:scores].each do |item|
+            li = item
+
+        form action="/ranking/delete" method="post" style="margin-top: 5px"
+          input type="hidden" name="index" value="#{index}"
+          button type="submit" Ta bort denna lista

@@ -1,0 +1,13 @@
+h2 Ny anteckning
+
+form action="/notes/create" method="post"
+  label for="title" Titel
+  input type="text" name="title" required
+
+  label for="ny_note" Innehåll
+  textarea name="ny_note" required
+
+  label for="author" Författare
+  input type="text" name="author" required
+
+  button type="submit" Spara
